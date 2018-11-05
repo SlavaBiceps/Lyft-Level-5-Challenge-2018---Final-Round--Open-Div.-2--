@@ -3,12 +3,12 @@
 using namespace std;
 int main() {
     int n,m,kol=0,koll=0;
-    int ver[90000];
-    int goro[90000];
-    int gork[90000];
-    int gory[90000];
-    int x[80000];
-    int y[80000];
+    int ver[100000];
+    int goro[100000];
+    int gork[100000];
+    int gory[100000];
+    int x[100000];
+    int y[100000];
     cin >> n >> m;
     for (int i=0;i<n;i++){
         cin >> ver[i];
@@ -18,21 +18,19 @@ int main() {
     }
     for (int i=0;i<n;i++){
         for (int k=0;k<m;k++){
-            if ((goro[k]==1)&&(goro[k]<=ver[i])&&(gork[k]>=ver[i])) {
+            if (!((goro[k]==1)&&(gork[k]==1000000000))&&((goro[k]==1)&&(goro[k]<=ver[i])&&(gork[k]>=ver[i]))) {
                 kol++;
                 x[kol]=ver[i];
                 y[kol]=gory[k];
             }
         }
     }
+    int ch=0;
     for (int k=0;k<m;k++){
         if ((goro[k]==1)&&(gork[k]==1000000000)) {
-            kol++;
-            x[kol]=1000000000;
-            y[kol]=gory[k];
-        }
+            ch++;
+            }
     }
-    int ch=0;
     while (kol>0) {
         ch++;
         int mix=1000000002;
